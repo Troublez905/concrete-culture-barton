@@ -19,9 +19,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 8% 12%, rgba(209, 46, 34, 0.22), transparent 30rem),
-    radial-gradient(circle at 92% 0%, rgba(0, 217, 255, 0.18), transparent 28rem),
-    linear-gradient(135deg, rgba(255, 211, 38, 0.05) 0 2px, transparent 2px 22px),
+    radial-gradient(circle at 8% 12%, rgba(239, 51, 35, 0.24), transparent 28rem),
+    radial-gradient(circle at 92% 0%, rgba(0, 217, 255, 0.18), transparent 24rem),
+    linear-gradient(135deg, rgba(255, 211, 38, 0.06) 0 2px, transparent 2px 18px),
     #080807;
   color: #f3ecd7;
 }
@@ -39,9 +39,10 @@ select {
 
 .spray-card {
   background:
-    linear-gradient(140deg, rgba(243, 236, 215, 0.1), rgba(243, 236, 215, 0.025)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 12px);
-  border: 1px solid rgba(243, 236, 215, 0.18);
+    linear-gradient(140deg, rgba(243, 236, 215, 0.12), rgba(8, 8, 7, 0.45)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 10px);
+  border: 1px solid rgba(243, 236, 215, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.45);
 }
 
 .tag-stroke {
@@ -50,6 +51,16 @@ select {
 
 .paint-swipe {
   background: linear-gradient(90deg, #d12e22, #ffd326 42%, #00d9ff 72%, #b6ff2b);
+}
+
+.urban-panel {
+  background:
+    linear-gradient(180deg, rgba(8, 8, 7, 0.08), rgba(8, 8, 7, 0.82)),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 14px);
+}
+
+.hazard-edge {
+  background: repeating-linear-gradient(135deg, #ffd326 0 12px, #080807 12px 24px);
 }
 
 .focus-ring:focus-visible {

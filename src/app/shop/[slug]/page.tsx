@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import { InnerPage } from "@/components/InnerPage";
 import { Badge } from "@/components/Badge";
+import { productAssetFor } from "@/config/assets";
 import { products } from "@/data/products";
 
 export function generateStaticParams() {
@@ -22,9 +24,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   return (
     <InnerPage eyebrow={product.category} title={product.title} copy={product.description}>
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="spray-card min-h-[430px] rounded-lg p-8">
-          <div className="paint-swipe h-10 rotate-[-3deg]" />
-          <div className="mx-auto mt-12 h-72 max-w-44 rounded-t-3xl border-4 border-night bg-safety shadow-hard" />
+        <div className="spray-card relative min-h-[430px] overflow-hidden rounded-sm">
+          <Image src={productAssetFor(product.category)} alt={`${product.title} Concrete Culture product visual`} fill sizes="(min-width: 1024px) 520px, 94vw" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-night/88 via-night/20 to-transparent" />
+          <div className="absolute bottom-5 left-5 max-w-sm">
+            <p className="mb-2 inline-flex bg-night/85 px-2 py-1 text-xs font-black uppercase tracking-[0.18em] text-cyan">{product.category}</p>
+            <p className="tag-stroke font-display text-5xl uppercase leading-none text-safety">{product.title}</p>
+          </div>
         </div>
         <div>
           <div className="flex flex-wrap items-center gap-3">

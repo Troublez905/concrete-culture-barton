@@ -3,10 +3,10 @@ import { Badge } from "./Badge";
 
 export function CategoryCard({ title }: { title: string }) {
   return (
-    <Link href={`/shop?category=${encodeURIComponent(title)}`} className="focus-ring spray-card group min-h-40 rounded-lg p-5 transition hover:-translate-y-1 hover:shadow-hard">
-      <div className="paint-swipe mb-5 h-2 w-20" />
-      <h3 className="font-display text-4xl uppercase leading-none text-white">{title}</h3>
-      <p className="mt-3 text-sm font-bold uppercase tracking-wide text-cyan">Shop category</p>
+    <Link href={`/shop?category=${encodeURIComponent(title)}`} className="focus-ring spray-card group min-h-32 rounded-md p-4 transition hover:-translate-y-1 hover:shadow-hard">
+      <div className="paint-swipe mb-4 h-1.5 w-16" />
+      <h3 className="font-display text-3xl uppercase leading-none text-white">{title}</h3>
+      <p className="mt-2 text-xs font-black uppercase tracking-wide text-cyan">Shop category</p>
     </Link>
   );
 }

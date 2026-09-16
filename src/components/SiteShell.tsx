@@ -1,8 +1,10 @@
 "use client";
 
 import { Menu, Search, ShoppingCart, UserRound, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { createContext, useContext, useMemo, useState } from "react";
+import { brandAssets } from "@/config/assets";
 import { socials } from "@/config/socials";
 import { siteConfig } from "@/config/site";
 import { Product, products } from "@/data/products";
@@ -42,17 +44,20 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-cream/15 bg-night/92 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3">
+      <header className="sticky top-0 z-40 border-b-2 border-freight bg-night/95 shadow-[0_8px_0_rgba(0,0,0,0.35)] backdrop-blur">
+        <div className="hazard-edge h-1.5" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2">
           <Link href="/" className="focus-ring flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-md bg-safety font-display text-2xl text-night">CC</span>
+            <span className="relative h-14 w-16 overflow-hidden rounded-sm bg-black">
+              <Image src={brandAssets.mark} alt="Concrete Culture CC logo" fill sizes="64px" className="object-contain p-1" />
+            </span>
             <span>
-              <span className="block font-display text-2xl uppercase leading-none text-white">Concrete Culture</span>
+              <span className="block font-display text-2xl uppercase leading-none text-white md:text-3xl">Concrete Culture</span>
               <span className="text-xs font-bold uppercase tracking-[0.18em] text-cyan">{siteConfig.tagline}</span>
             </span>
           </Link>
-          <nav className="hidden items-center gap-4 lg:flex">
-            {nav.map(([label, href]) => <Link key={href} href={href} className="focus-ring text-sm font-bold uppercase text-cream/80 hover:text-safety">{label}</Link>)}
+          <nav className="hidden items-center gap-2 lg:flex">
+            {nav.map(([label, href]) => <Link key={href} href={href} className="focus-ring border border-cream/15 px-2.5 py-2 text-xs font-black uppercase tracking-wide text-cream/82 hover:border-safety hover:bg-safety hover:text-night">{label}</Link>)}
           </nav>
           <div className="flex items-center gap-2">
             <button className="focus-ring rounded-md border border-cream/20 p-2" aria-label="Search"><Search size={20} /></button>
