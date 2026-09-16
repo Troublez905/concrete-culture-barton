@@ -46,7 +46,7 @@ select {
 }
 
 .tag-stroke {
-  text-shadow: 3px 3px 0 #080807, -1px -1px 0 #080807, 1px -1px 0 #080807, -1px 1px 0 #080807;
+  text-shadow: 4px 4px 0 #080807, -1px -1px 0 #080807, 1px -1px 0 #080807, -1px 1px 0 #080807;
 }
 
 .paint-swipe {
@@ -66,4 +66,15 @@ select {
 .focus-ring:focus-visible {
   outline: 3px solid #00d9ff;
   outline-offset: 4px;
+}
+
+::selection {
+  background: #ffd326;
+  color: #080807;
+}
+
+@media (max-width: 520px) {
+  .tag-stroke {
+    text-shadow: 2px 2px 0 #080807, -1px -1px 0 #080807, 1px -1px 0 #080807;
+  }
 }

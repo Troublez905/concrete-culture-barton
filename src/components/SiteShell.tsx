@@ -78,23 +78,34 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       <CartContext.Provider value={{ addProduct }}>
         {children}
       </CartContext.Provider>
-      <footer className="border-t border-cream/15 bg-night px-4 py-10">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.3fr_1fr_1fr]">
+      <footer className="border-t-2 border-freight bg-night px-4 py-10">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.25fr_0.85fr_0.9fr_0.9fr]">
           <div>
-            <p className="font-display text-5xl uppercase text-white">Concrete Culture</p>
-            <p className="mt-3 max-w-lg text-cream/70">Hamilton creative supply hub prototype for paint, supplies, art, drops, workshops, artists, and community partnerships.</p>
+            <div className="relative mb-4 h-24 max-w-72">
+              <Image src={brandAssets.logo} alt="Concrete Culture Paint Supplies Art logo" fill sizes="288px" className="object-contain object-left" />
+            </div>
+            <p className="max-w-lg text-sm leading-6 text-cream/70">Hamilton creative supply hub for paint, supplies, art, drops, workshops, artists, and community partnerships.</p>
           </div>
           <div>
-            <p className="font-black uppercase text-safety">Visit</p>
-            <p className="mt-2 text-cream/70">{siteConfig.address}</p>
-            <p className="text-cream/70">{siteConfig.hours}</p>
+            <p className="font-black uppercase tracking-[0.16em] text-safety">Visit</p>
+            <p className="mt-2 text-sm leading-6 text-cream/70">{siteConfig.address}</p>
+            <p className="text-sm leading-6 text-cream/70">{siteConfig.hours}</p>
           </div>
           <div>
-            <p className="font-black uppercase text-safety">Follow the culture</p>
+            <p className="font-black uppercase tracking-[0.16em] text-safety">Explore</p>
+            <div className="mt-2 grid gap-1 text-sm font-bold uppercase text-cream/70">
+              {nav.slice(0, 6).map(([label, href]) => <Link key={href} href={href} className="focus-ring hover:text-cyan">{label}</Link>)}
+            </div>
+          </div>
+          <div>
+            <p className="font-black uppercase tracking-[0.16em] text-safety">Follow the culture</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {socials.map(({ name, href, Icon }) => <Link key={name} href={href} className="focus-ring rounded-md border border-cream/20 p-2" aria-label={name}><Icon size={18} /></Link>)}
             </div>
           </div>
+        </div>
+        <div className="mx-auto mt-8 max-w-7xl border-t border-cream/10 pt-4 text-xs font-bold uppercase tracking-[0.18em] text-cream/45">
+          Concrete Culture // Barton St. Hamilton // Paint | Supplies | Art
         </div>
       </footer>
       <CartDrawer
