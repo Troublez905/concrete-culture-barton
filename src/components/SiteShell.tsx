@@ -18,6 +18,7 @@ const nav = [
   ["Workshops", "/workshops"],
   ["Events", "/events"],
   ["Wall Rank", "/wallrank"],
+  ["Owner Pitch", "/pitch"],
   ["About", "/about"],
   ["Visit", "/visit"]
 ];
