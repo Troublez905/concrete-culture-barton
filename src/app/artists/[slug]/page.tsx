@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return artists.map((artist) => ({ slug: artist.slug }));
 }
 
-export default function ArtistPage({ params }: { params: { slug: string } }) {
-  const artist = artists.find((item) => item.slug === params.slug);
+export default async function ArtistPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const artist = artists.find((item) => item.slug === slug);
   if (!artist) notFound();
   return (
     <InnerPage eyebrow={artist.medium} title={artist.name} copy={artist.bio}>

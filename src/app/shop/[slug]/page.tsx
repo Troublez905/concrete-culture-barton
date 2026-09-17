@@ -11,13 +11,15 @@ export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const product = products.find((item) => item.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = products.find((item) => item.slug === slug);
   return { title: product?.title ?? "Product" };
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = products.find((item) => item.slug === params.slug);
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
   const related = products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 3);
 
